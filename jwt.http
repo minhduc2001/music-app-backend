@@ -1,0 +1,13 @@
+GET http://localhost:5000/books
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTcxNzg2NTQsImV4cCI6MTY1NzE3ODY4NH0.UJTZcH7izAzt6zrbvhgWI91_Mo6O_EId0mR-vnndmQ4
+###
+POST http://localhost:5000/api/auth/login
+
+{
+    "username": "anhyeuemilia",
+    "password": "123456"
+}
+###
+
+POST http://localhost:5000/api/music/add
