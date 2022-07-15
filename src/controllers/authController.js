@@ -10,8 +10,11 @@ class AuthController {
         try {
             const salt = bcrypt.genSaltSync(10);
             const hashedPassword = bcrypt.hashSync(req.body.password, salt);
-            const checkPhone = await User.find({ phone: req.body.phone });
-            if (!checkPhone) return res.status(500).json({ msg: 'Phone already exists!' });
+            const checkUser = await User.findOne({ username: req.body.username});
+
+            if(checkUser) return res.status(500).json({msg:'Username already in use!'})
+            const checkPhone = await User.findOne({ phone: req.body.phone });
+            if (checkPhone) return res.status(500).json({ msg: 'Phone already exists!' });
             const newUser = new User({
                 username: req.body.username,
                 phone: req.body.phone,
@@ -20,7 +23,6 @@ class AuthController {
             const user = await newUser.save();
             return res.status(200).json(user)
         } catch (error) {
-
            return res.status(500).json(error);
         }
     }
