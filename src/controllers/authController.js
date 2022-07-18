@@ -46,6 +46,7 @@ class AuthController {
             const refreshToken = generateAccessToken.refreshToken(user);
 
             res.cookie('refreshToken', refreshToken, {
+                domain:'https://stream-e2870.web.app',
                 httpOnly: true,
                 secure: true, //true
                 path: '/',
@@ -76,6 +77,7 @@ class AuthController {
                 const newRefreshToken = generateAccessToken.refreshToken(user);
 
                 res.cookie('refreshToken', newRefreshToken, {
+                    domain:'https://stream-e2870.web.app',
                     httpOnly: true,
                     secure: true, //true
                     path: '/',
