@@ -47,7 +47,7 @@ class AuthController {
 
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
-                secure: false, //true
+                secure: true, //true
                 path: '/',
                 sameSite: 'strict',
                 maxAge: 24 * 60 * 60 * 1000
@@ -77,7 +77,7 @@ class AuthController {
 
                 res.cookie('refreshToken', newRefreshToken, {
                     httpOnly: true,
-                    secure: false, //true
+                    secure: true, //true
                     path: '/',
                     sameSite: 'strict',
                     maxAge: 24 * 60 * 60 * 1000
