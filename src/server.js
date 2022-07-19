@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json({limit: '50mb'}));
-app.use(cors({credentials: true, origin: 'https://stream-e2870.web.app'}));
+app.use(cors({ origin: 'https://stream-e2870.web.app', credentials: true}));
 app.use(cookieParser());
 
 app.use(morgan('dev'));
