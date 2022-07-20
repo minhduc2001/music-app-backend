@@ -9,7 +9,7 @@ class GenerateAccessToken {
                 isAdmin: user.isAdmin
             },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '10s' }
+            { expiresIn: '10m' }
         )
     }
     refreshToken(user) {
